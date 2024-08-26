@@ -1,0 +1,24 @@
+name: Run ngrok
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 * * * *'
+
+jobs:
+  ngrok:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up ngrok
+      run: |
+        echo "Authtoken: ${{ secrets.NGROK_AUTH_TOKEN }}" > ~/.ngrok2/ngrok.yml
+        ngrok http 80 &
+
+    - name: Keep ngrok running
+      run: sleep 999999
