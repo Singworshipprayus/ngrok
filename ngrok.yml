@@ -1,0 +1,6 @@
+authtoken: 2lCNFuj1Km3sG6grLd73FHvANV3_oWVNhR2QhJw2p4WxEDvX
+tunnels:
+  http:
+    proto: http
+    addr: 80
+    bind_tls: true
